@@ -1,0 +1,9 @@
+<div class="container mb-3 m-0 pt-0 pb-0">
+    <p>Points: {{champMastery.championPoints}}</p>
+    <img src="{{'assets/MasteryIcons/Mastery_' + champMastery.championLevel + '.png'}}" alt="">
+    <div class="progress bg-danger">
+        <div class="progress-bar bg-info text-dark" [attr.style]="'width: ' + getPercentCompleted() + '%'" role="progressbar" [attr.aria-valuenow]="champMastery.championPointsSinceLastLevel" aria-valuemin="0" [attr.aria-valuemax]="champMastery.championPointsSinceLastLevel + champMastery.championPointsUntilNextLevel">
+            {{champMastery.championPointsSinceLastLevel}} / {{getTotalPointsNeeded()}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="d-flex flex-wrap">
+    <div class="col-3 p-3 border border-info container container-sm m-1" *ngFor="let championMastery of championMasterys">
+        <app-champion-display [championId]='championMastery.championId'></app-champion-display>
+        <app-mastery-display [champMastery]='championMastery'></app-mastery-display>
+    </div>
+</div>
