@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { BodyComponent } from './../body/body.component';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { RESTRiotServiceService } from './../../service/restriot-service.service';
+
 
 @Component({
   selector: 'app-header',
@@ -8,15 +11,25 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   title: string = 'LeagueMastery';
+  summonerName: string = '';
+  summonerData: any;
 
-  constructor() { }
+  @Output() newSummonerEvent = new EventEmitter<string>();
+
+  constructor(public restApi: RESTRiotServiceService) { }
 
   ngOnInit(): void {
-    
   }
 
   search() { 
-    console.log("Pressed")
+    console.log("Search");
+    if(this.summonerName != undefined){
+      this.restApi.getSummonerByName(this.summonerName).subscribe(data => {
+        this.summonerData = data;
+        console.log(this.summonerData);
+        console.log("emit");
+        this.newSummonerEvent.emit(this.summonerData);
+      });
+    };
   }
-
 }

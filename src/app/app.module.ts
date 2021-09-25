@@ -9,6 +9,7 @@ import { BodyComponent } from './components/body/body.component';
 import { ChampionDisplayComponent } from './components/champion-display/champion-display.component';
 import { MasteryDisplayComponent } from './components/mastery-display/mastery-display.component';
 import {HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,9 +23,11 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+}

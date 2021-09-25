@@ -28,7 +28,5 @@ export class RESTRiotServiceService {
     httpHeaders.append('content-type', 'application/json');
 
     return this.httpClient.get('http://localhost:4201/api/leagueJS/summonerByName/'+summonerName, {headers: httpHeaders});  
-  
-
   }
 }

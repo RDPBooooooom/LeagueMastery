@@ -9,14 +9,23 @@ import { RESTRiotServiceService } from './../../service/restriot-service.service
 })
 export class ChampionContainerComponent implements OnInit {
 
+  @Input() summonerId: string = '';
   championMasterys!: ChampionMastery[]|any;
 
   constructor(public restApi: RESTRiotServiceService) { }
 
   ngOnInit(): void {
-    this.restApi.getAllMasteryBySummoner("EXHSBmagJiQTtYbshDxUGiHFIPWYydLAuIxbsGBmCqALYF8").subscribe(data => {
+  }
+
+  setChampMasteryFromAPI(){
+    console.log("CHAMP_CONTAINER: Getting Champ Mastery with: " + this.summonerId);
+    this.restApi.getAllMasteryBySummoner(this.summonerId).subscribe(data => {
       this.championMasterys = data;
     });
+  }
+
+  ngOnChanges() {
+    this.setChampMasteryFromAPI();
   }
 
 }

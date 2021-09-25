@@ -1,4 +1,4 @@
 <div class="container" background-color="green">
-    <app-header></app-header>
-    <app-body></app-body>
+    <app-header (newSummonerEvent)="update($event)"></app-header>
+    <app-body [summonerData]="summonerData"></app-body>
 </div>

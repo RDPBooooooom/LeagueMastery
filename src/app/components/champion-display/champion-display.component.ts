@@ -14,8 +14,10 @@ export class ChampionDisplayComponent implements OnInit {
   constructor(public restApi: RESTRiotServiceService) { }
 
   ngOnInit(): void {
-    this.restApi.getChampionData(this.championId).subscribe(data => {
-      this.championData = data;
-    });
+    if(this.championId != undefined){
+      this.restApi.getChampionData(this.championId).subscribe(data => {
+        this.championData = data;
+      });
+    }
   } 
 }
